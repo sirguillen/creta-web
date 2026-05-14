@@ -73,18 +73,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Brand's Lab — Términos y Política de Tratamiento de Datos" },
+      { title: "CRETA — Metodología de Brand's Lab | Neurociencia + IA" },
       {
         name: "description",
         content:
-          "Términos de uso y política de tratamiento de datos de Brand's Lab y la metodología CRETA.",
+          "CRETA es la metodología de Brand's Lab que fusiona neurociencia del comportamiento e IA para transformar la motivación, el liderazgo y los resultados organizacionales.",
       },
       { name: "author", content: "Brand's Lab" },
-      { property: "og:title", content: "Brand's Lab — Términos y Política de Datos" },
+      { property: "og:title", content: "CRETA — Metodología de Brand's Lab" },
       {
         property: "og:description",
         content:
-          "Términos de uso y política de tratamiento de datos de Brand's Lab (Metodología CRETA).",
+          "Neurociencia del comportamiento + IA para potenciar la motivación y los resultados de tu organización.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
