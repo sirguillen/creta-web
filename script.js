@@ -1,12 +1,10 @@
 // CRETA — minor enhancements: active nav + footer year
 document.addEventListener("DOMContentLoaded", () => {
-  // Mark active nav link
-  const path = location.pathname.replace(/\/$/, "") || "/";
+  // Mark active nav link ("/", "/index" y "/index.html" cuentan como Inicio)
+  const norm = (p) => p.replace(/\.html$/, "").replace(/\/index$/, "/").replace(/\/$/, "") || "/";
+  const cur = norm(location.pathname);
   document.querySelectorAll(".nav a").forEach((a) => {
-    const href = a.getAttribute("href").replace(/\/$/, "") || "/";
-    const norm = href === "index.html" || href === "./index.html" || href === "/" ? "/" : "/" + href.replace(/^\.?\//, "").replace(/\.html$/, "");
-    const cur = path === "/" ? "/" : path.replace(/\.html$/, "");
-    if (norm === cur) a.classList.add("active");
+    if (norm(a.pathname) === cur) a.classList.add("active");
   });
   // Footer year
   const y = document.getElementById("year");

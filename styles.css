@@ -146,6 +146,9 @@ section.muted { background: color-mix(in oklab, var(--accent) 40%, transparent);
 .card .title { font-family: var(--font-serif); font-size: 1.25rem; margin-top: 0.75rem; line-height: 1.3; }
 .card .body { margin-top: 0.75rem; font-size: 0.875rem; color: var(--muted-foreground); line-height: 1.6; }
 
+.section-intro { margin-top: 1.25rem; max-width: 40rem; }
+.cards-note { margin-top: 2rem; }
+
 /* Results */
 .results { margin-top: 0; display: grid; gap: 1rem; font-size: 1.125rem; color: color-mix(in oklab, var(--foreground) 85%, transparent); }
 .results li { display: flex; gap: 0.75rem; align-items: baseline; line-height: 1.6; }
@@ -153,7 +156,7 @@ section.muted { background: color-mix(in oklab, var(--accent) 40%, transparent);
 
 /* Legal cards */
 .legal-grid { margin-top: 2.5rem; display: grid; gap: 1rem; }
-@media (min-width: 640px) { .legal-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 768px) { .legal-grid { grid-template-columns: repeat(3, 1fr); } }
 .legal-card .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--muted-foreground); }
 .legal-card .heading { font-family: var(--font-serif); font-size: 1.5rem; margin-top: 0.5rem; }
 .legal-card .desc { margin-top: 0.75rem; font-size: 0.875rem; color: var(--muted-foreground); line-height: 1.6; }
@@ -166,6 +169,9 @@ section.muted { background: color-mix(in oklab, var(--accent) 40%, transparent);
 .cta-link { margin-top: 1.25rem; font-size: 0.875rem; font-weight: 500; color: var(--foreground); display: inline-flex; gap: 0.25rem; }
 .legal-card:hover .cta-link span { transform: translateX(2px); }
 .cta-link span { transition: transform .15s; }
+.legal-intro { margin-top: 1.25rem; max-width: 36rem; }
+.legal-updated { margin-top: 2rem; }
+.legal-updated b { color: var(--foreground); }
 
 /* Términos */
 .doc-layout { display: grid; gap: 3rem; padding: 3.5rem 0 2.5rem; }
@@ -206,6 +212,12 @@ article.doc dd { margin-top: 0.25rem; color: color-mix(in oklab, var(--foregroun
 article.doc ol { list-style: decimal; padding-left: 1.5rem; }
 article.doc ol li { margin-top: 0.5rem; }
 article.doc ol li::marker { color: var(--muted-foreground); }
+article.doc ol.alpha { list-style: lower-alpha; }
+article.doc ul.bullets { list-style: disc; padding-left: 1.5rem; }
+article.doc ul.bullets li { margin-top: 0.25rem; }
+article.doc ul.bullets li::marker { color: var(--highlight); }
+article.doc section h3 { font-size: 1rem; font-weight: 600; letter-spacing: -0.01em; }
+article.doc section .body > h3:not(:first-child) { margin-top: 2rem; }
 .inline-tag {
   display: inline-block; background: var(--accent); color: var(--accent-foreground);
   padding: 0.05em 0.4em; border-radius: 0.3em; font-weight: 500;
@@ -217,8 +229,8 @@ article.doc ol li::marker { color: var(--muted-foreground); }
 .acceptance .quote { font-family: var(--font-serif); font-style: italic; line-height: 1.6; }
 .acceptance .label { margin-top: 0.75rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--muted-foreground); }
 .contact-note { margin-top: 1rem; font-size: 0.875rem; color: var(--muted-foreground); }
-.contact-note a { color: var(--foreground); text-decoration: underline; text-decoration-color: var(--highlight); text-decoration-thickness: 2px; text-underline-offset: 4px; }
-.contact-note a:hover { text-decoration-color: var(--foreground); }
+.contact-note a, article.doc .body a { color: var(--foreground); text-decoration: underline; text-decoration-color: var(--highlight); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.contact-note a:hover, article.doc .body a:hover { text-decoration-color: var(--foreground); }
 
 /* Contacto */
 .contact-page { padding: 5rem 0 2.5rem; }
@@ -238,6 +250,7 @@ article.doc ol li::marker { color: var(--muted-foreground); }
 .email-card .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--muted-foreground); }
 .email-card .email { font-family: var(--font-serif); font-size: 1.875rem; margin-top: 0.5rem; transition: color .15s; }
 .email-card:hover .email { color: var(--highlight); }
+.email-card + .contact-note { margin-top: 2.5rem; }
 .email-card .note { margin-top: 0.75rem; font-size: 0.875rem; color: var(--muted-foreground); }
 
 strong { font-weight: 600; }

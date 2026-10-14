@@ -1,0 +1,4 @@
+# Archivos privados: no se suben al repositorio (que es público).
+# Viven solo en el equipo local; respaldarlos por otro medio.
+CLAUDE.md
+_respaldos/

@@ -1,0 +1,7 @@
+# Configuración de Jekyll (GitHub Pages).
+# Lo que se lista aquí NO se publica en www.cretaapp.com.
+# Las carpetas que empiezan con "_" (p. ej. _respaldos/) tampoco se publican.
+exclude:
+  - CLAUDE.md
+  - README.md
+  - _respaldos/
