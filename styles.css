@@ -194,6 +194,10 @@ article.doc h1 {
   line-height: 1.1; letter-spacing: -0.02em; margin-top: 0.75rem;
 }
 article.doc .subtitle { margin-top: 0.75rem; font-family: var(--font-serif); font-style: italic; font-size: 1.125rem; color: var(--muted-foreground); }
+article.doc .controller { margin-top: 1rem; font-size: 0.875rem; line-height: 1.6; color: var(--muted-foreground); }
+article.doc .controller strong { color: var(--foreground); font-weight: 500; }
+article.doc .controller a { color: var(--foreground); text-decoration: underline; text-decoration-color: var(--highlight); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+article.doc .controller + .updated { margin-top: 0.5rem; }
 article.doc .updated { margin-top: 1rem; font-size: 0.875rem; color: var(--muted-foreground); }
 article.doc .updated b { color: var(--foreground); font-weight: 500; }
 article.doc .content { margin-top: 2.5rem; line-height: 1.75; color: color-mix(in oklab, var(--foreground) 90%, transparent); }
