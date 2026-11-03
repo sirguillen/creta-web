@@ -1,17 +1,35 @@
 /* CRETA — Brand's Lab. Static styles. */
 :root {
-  --background: oklch(0.985 0.005 85);
-  --foreground: oklch(0.18 0.025 270);
-  --card: #ffffff;
-  --muted: oklch(0.95 0.008 85);
-  --muted-foreground: oklch(0.45 0.02 270);
-  --accent: oklch(0.93 0.015 270);
-  --accent-foreground: oklch(0.25 0.045 270);
-  --border: oklch(0.9 0.01 270);
-  --highlight: oklch(0.78 0.13 65);
-  --radius: 0.5rem;
-  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Paleta del panel de administración (creta-admin). Ver _propuesta/paleta.css */
+  --creta-bg: #FBF6EF; --creta-surface: #FFFFFF;
+  --creta-navy: #0A1428; --creta-navy-2: #13213D; --creta-navy-line: #1F2C47;
+  --creta-hair: #E0520B; --creta-hair-highlight: #F36A23; --creta-hair-mid-shadow: #C83E03; --creta-hair-soft: #FCE3D4;
+  --creta-gold: #DDA032; --creta-gold-soft: #F6EBCF; --creta-gold-text: #7A5A12; --creta-shirt: #C9B29B;
+  --creta-orange: var(--creta-hair-mid-shadow); --creta-orange-hover: #A63303;
+  --creta-blue: #0B2A6E; --creta-blue-hover: #081F52; --creta-link: #1E3F94;
+  --creta-teal: #14A39B; --creta-teal-soft: #DDF3F1; --creta-teal-text: #0B6560;
+  --creta-text: #0A1428; --creta-text-2: #3D3A36; --creta-muted: #6B6458;
+  --creta-line: #EADFCF; --creta-line-soft: #F1E8DB;
+  --creta-radius: 10px;
+  --creta-font: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Variables del sitio, apuntando a la paleta */
+  --background: var(--creta-bg);
+  --foreground: var(--creta-text);
+  --card: var(--creta-surface);
+  --muted: var(--creta-line-soft);
+  --muted-foreground: var(--creta-muted);
+  --accent: var(--creta-hair-soft);
+  --accent-foreground: var(--creta-orange-hover);
+  --border: var(--creta-line);
+  --highlight: var(--creta-gold);              /* solo decorativo: puntos y subrayados */
+  --highlight-text: var(--creta-orange);       /* números y acentos de texto (4,71:1 sobre crema) */
+  --radius: var(--creta-radius);
+  --font-sans: var(--creta-font);
+
+  /* Títulos: Plus Jakarta Sans en negrita, como el panel */
+  --font-display: var(--font-sans); --display-weight: 700; --display-style: normal;
+  --section-title-size: clamp(1.875rem, 4vw, 2.5rem); --brand-size: 1.25rem;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -24,7 +42,7 @@ body {
   text-rendering: optimizeLegibility;
   line-height: 1.5;
 }
-.serif { font-family: var(--font-serif); font-feature-settings: "liga","dlig"; }
+.serif { font-family: var(--font-display); font-weight: var(--display-weight); font-feature-settings: "liga","dlig"; }
 a { color: inherit; text-decoration: none; }
 ul, ol { list-style: none; }
 
@@ -45,7 +63,7 @@ ul, ol { list-style: none; }
   height: 4rem; display: flex; align-items: center; justify-content: space-between;
 }
 .brand { display: flex; align-items: baseline; gap: 0.5rem; }
-.brand .name { font-family: var(--font-serif); font-size: 1.5rem; letter-spacing: -0.02em; }
+.brand .name { font-family: var(--font-display); font-size: var(--brand-size); letter-spacing: -0.02em; white-space: nowrap; }
 .brand .tag { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted-foreground); }
 @media (max-width: 480px) { .brand .tag { display: none; } }
 .nav { display: flex; align-items: center; gap: 0.25rem; font-size: 0.875rem; }
@@ -56,18 +74,21 @@ ul, ol { list-style: none; }
 .nav a:hover { color: var(--foreground); }
 .nav a.active { color: var(--foreground); font-weight: 500; }
 
-/* Footer */
-.site-footer { border-top: 1px solid var(--border); margin-top: 6rem; }
+/* Footer (bloque marino, como el menú del panel) */
+.site-footer { background: var(--creta-navy); margin-top: 6rem; }
 .site-footer .inner {
   max-width: 64rem; margin: 0 auto; padding: 2.5rem 1.5rem;
   display: flex; flex-direction: column; gap: 1rem;
-  font-size: 0.875rem; color: var(--muted-foreground);
+  font-size: 0.875rem; color: color-mix(in oklab, #fff 72%, var(--creta-navy));
 }
+main:has(> section.bordered:last-child) + .site-footer { margin-top: 0; }
+.site-footer .brand-col { display: grid; grid-template-columns: auto 1fr; column-gap: 1rem; align-items: center; }
+.site-footer .logo { grid-row: span 2; width: 2.75rem; height: auto; }
 @media (min-width: 640px) {
   .site-footer .inner { flex-direction: row; align-items: center; justify-content: space-between; }
   .site-footer .right { text-align: right; }
 }
-.site-footer .name { font-family: var(--font-serif); font-size: 1.125rem; color: var(--foreground); }
+.site-footer .name { font-family: var(--font-display); font-size: 1.125rem; color: #fff; }
 
 main { min-height: calc(100vh - 4rem); }
 
@@ -86,28 +107,36 @@ main { min-height: calc(100vh - 4rem); }
 .eyebrow-pill .dot { width: 0.375rem; height: 0.375rem; border-radius: 9999px; background: var(--highlight); }
 
 /* Hero */
-.hero { padding: 5rem 0 4rem; }
+.hero { padding: 5rem 0 0; overflow: hidden; }
+.hero-grid { display: grid; align-items: end; }
+.hero-text { padding-bottom: 2.5rem; }
+.hero-grid .creta-stage { width: 13rem; justify-self: center; }
+@media (min-width: 1024px) {
+  .hero-grid { grid-template-columns: 1fr auto; gap: 2rem; }
+  .hero-text { padding-bottom: 4rem; }
+  .hero-grid .creta-stage { width: 18.75rem; }
+}
 .hero h1 {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: clamp(3.75rem, 10vw, 6rem);
   line-height: 0.95; letter-spacing: -0.02em;
   margin-top: 1.5rem;
 }
 .hero .lede {
   margin-top: 1.5rem; max-width: 36rem;
-  font-family: var(--font-serif); font-style: italic;
+  font-family: var(--font-display); font-style: var(--display-style);
   font-size: 1.25rem; color: var(--muted-foreground); line-height: 1.6;
 }
 .cta-row { margin-top: 2.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
 .btn-primary, .btn-ghost {
   display: inline-flex; align-items: center; justify-content: center;
-  padding: 0.75rem 1.25rem; border-radius: 0.375rem;
-  font-size: 0.875rem; font-weight: 500; transition: all .15s;
+  padding: 0.75rem 1.25rem; border-radius: var(--radius);
+  font-size: 0.875rem; font-weight: 600; transition: all .15s;
 }
-.btn-primary { background: var(--foreground); color: var(--background); }
-.btn-primary:hover { background: color-mix(in oklab, var(--foreground) 90%, transparent); }
+.btn-primary { background: var(--creta-orange); color: #fff; }
+.btn-primary:hover { background: var(--creta-orange-hover); }
 .btn-ghost { border: 1px solid var(--border); background: var(--card); color: var(--foreground); }
-.btn-ghost:hover { border-color: color-mix(in oklab, var(--foreground) 30%, var(--border)); }
+.btn-ghost:hover { border-color: var(--creta-shirt); }
 
 .tag-row { margin-top: 2.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .tag-pill {
@@ -119,13 +148,13 @@ main { min-height: calc(100vh - 4rem); }
 
 /* Sections */
 section.bordered { border-top: 1px solid var(--border); }
-section.muted { background: color-mix(in oklab, var(--accent) 40%, transparent); }
-.section-inner { padding: 5rem 0; }
+section.muted { background: var(--muted); }
+.section-inner { padding-top: 5rem; padding-bottom: 5rem; }
 .section-inner .eyebrow { display: block; }
 .section-title {
-  font-family: var(--font-serif);
-  font-size: clamp(2.25rem, 5vw, 3rem);
-  line-height: 1.05; letter-spacing: -0.02em;
+  font-family: var(--font-display);
+  font-size: var(--section-title-size);
+  line-height: 1.1; letter-spacing: -0.02em;
   margin-top: 0.75rem; max-width: 48rem;
 }
 .section-grid { display: grid; gap: 2.5rem; }
@@ -141,9 +170,9 @@ section.muted { background: color-mix(in oklab, var(--accent) 40%, transparent);
   border-radius: var(--radius); padding: 1.5rem;
   transition: border-color .15s, box-shadow .15s;
 }
-.card:hover { border-color: color-mix(in oklab, var(--foreground) 30%, var(--border)); }
-.card .num { font-family: var(--font-serif); font-size: 1.875rem; color: var(--highlight); }
-.card .title { font-family: var(--font-serif); font-size: 1.25rem; margin-top: 0.75rem; line-height: 1.3; }
+.card:hover { border-color: var(--creta-shirt); }
+.card .num { font-family: var(--font-display); font-size: 1.875rem; color: var(--highlight-text); }
+.card .title { font-family: var(--font-display); font-size: 1.25rem; margin-top: 0.75rem; line-height: 1.3; }
 .card .body { margin-top: 0.75rem; font-size: 0.875rem; color: var(--muted-foreground); line-height: 1.6; }
 
 .section-intro { margin-top: 1.25rem; max-width: 40rem; }
@@ -158,7 +187,7 @@ section.muted { background: color-mix(in oklab, var(--accent) 40%, transparent);
 .legal-grid { margin-top: 2.5rem; display: grid; gap: 1rem; }
 @media (min-width: 768px) { .legal-grid { grid-template-columns: repeat(3, 1fr); } }
 .legal-card .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--muted-foreground); }
-.legal-card .heading { font-family: var(--font-serif); font-size: 1.5rem; margin-top: 0.5rem; }
+.legal-card .heading { font-family: var(--font-display); font-size: 1.5rem; margin-top: 0.5rem; }
 .legal-card .desc { margin-top: 0.75rem; font-size: 0.875rem; color: var(--muted-foreground); line-height: 1.6; }
 .mini-tags { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.375rem; }
 .mini-tag {
@@ -189,11 +218,11 @@ section.muted { background: color-mix(in oklab, var(--accent) 40%, transparent);
 
 article.doc { max-width: 68ch; }
 article.doc h1 {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: clamp(2.25rem, 5vw, 3rem);
   line-height: 1.1; letter-spacing: -0.02em; margin-top: 0.75rem;
 }
-article.doc .subtitle { margin-top: 0.75rem; font-family: var(--font-serif); font-style: italic; font-size: 1.125rem; color: var(--muted-foreground); }
+article.doc .subtitle { margin-top: 0.75rem; font-family: var(--font-display); font-style: var(--display-style); font-size: 1.125rem; color: var(--muted-foreground); }
 article.doc .controller { margin-top: 1rem; font-size: 0.875rem; line-height: 1.6; color: var(--muted-foreground); }
 article.doc .controller strong { color: var(--foreground); font-weight: 500; }
 article.doc .controller a { color: var(--foreground); text-decoration: underline; text-decoration-color: var(--highlight); text-decoration-thickness: 2px; text-underline-offset: 4px; }
@@ -205,8 +234,8 @@ article.doc .content > * + * { margin-top: 3rem; }
 
 article.doc section { scroll-margin-top: 6rem; }
 article.doc section .head { display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 1.25rem; }
-article.doc section .n { font-family: var(--font-serif); font-size: 1.5rem; color: var(--highlight); font-variant-numeric: tabular-nums; }
-article.doc section h2 { font-family: var(--font-serif); font-size: clamp(1.5rem, 3vw, 1.875rem); letter-spacing: -0.01em; line-height: 1.2; }
+article.doc section .n { font-family: var(--font-display); font-size: 1.5rem; color: var(--highlight-text); font-variant-numeric: tabular-nums; }
+article.doc section h2 { font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 1.875rem); letter-spacing: -0.01em; line-height: 1.2; }
 article.doc section .body > * + * { margin-top: 1rem; }
 
 article.doc dl { display: grid; gap: 0.75rem; margin-top: 0.5rem; }
@@ -230,7 +259,7 @@ article.doc section .body > h3:not(:first-child) { margin-top: 2rem; }
   margin-top: 3rem; border: 1px solid var(--border); background: var(--card);
   border-radius: var(--radius); padding: 1.5rem;
 }
-.acceptance .quote { font-family: var(--font-serif); font-style: italic; line-height: 1.6; }
+.acceptance .quote { font-family: var(--font-display); font-style: var(--display-style); line-height: 1.6; }
 .acceptance .label { margin-top: 0.75rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--muted-foreground); }
 .contact-note { margin-top: 1rem; font-size: 0.875rem; color: var(--muted-foreground); }
 .contact-note a, article.doc .body a { color: var(--foreground); text-decoration: underline; text-decoration-color: var(--highlight); text-decoration-thickness: 2px; text-underline-offset: 4px; }
@@ -239,7 +268,7 @@ article.doc section .body > h3:not(:first-child) { margin-top: 2rem; }
 /* Contacto */
 .contact-page { padding: 5rem 0 2.5rem; }
 .contact-page h1 {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: clamp(2.5rem, 6vw, 3rem);
   line-height: 1.05; letter-spacing: -0.02em; margin-top: 0.75rem;
 }
@@ -250,12 +279,43 @@ article.doc section .body > h3:not(:first-child) { margin-top: 2rem; }
   border-radius: var(--radius); padding: 1.5rem;
   transition: border-color .15s;
 }
-.email-card:hover { border-color: color-mix(in oklab, var(--foreground) 30%, var(--border)); }
+.email-card:hover { border-color: var(--creta-shirt); }
 .email-card .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--muted-foreground); }
-.email-card .email { font-family: var(--font-serif); font-size: 1.875rem; margin-top: 0.5rem; transition: color .15s; }
-.email-card:hover .email { color: var(--highlight); }
+.email-card .email { font-family: var(--font-display); font-size: clamp(1.125rem, 5vw, 1.875rem); margin-top: 0.5rem; overflow-wrap: anywhere; transition: color .15s; }
+.email-card:hover .email { color: var(--highlight-text); }
 .email-card + .contact-note { margin-top: 2.5rem; }
 .email-card .note { margin-top: 0.75rem; font-size: 0.875rem; color: var(--muted-foreground); }
+
+/* Creta (decorativa: siempre alt="") */
+.creta-stage { position: relative; justify-self: end; width: 10rem; }
+.creta-stage::before {
+  content: ""; position: absolute; left: 6%; right: 9%; top: 10%; aspect-ratio: 1;
+  border-radius: 9999px; background: var(--creta-hair-soft);
+}
+.creta-stage img { position: relative; display: block; width: 100%; height: auto; }
+.creta-avatar { display: block; border-radius: 9999px; background: var(--creta-hair-soft); }
+.creta-head { display: grid; align-items: end; }
+.creta-head > :first-child { padding-bottom: 2rem; }
+.creta-head + .cards-3, .creta-head + .email-card { margin-top: 0; }
+.creta-head.ground { border-bottom: 1px solid var(--border); }
+@media (min-width: 768px) {
+  .creta-head { grid-template-columns: 1fr auto; gap: 2rem; }
+  .creta-head .creta-stage { width: 12.5rem; }
+}
+.contact-page .creta-head .creta-stage { width: 10rem; }
+
+.section-inner.grounded { padding-bottom: 0; }
+.creta-split .creta-stage { width: 10rem; }
+@media (min-width: 1024px) {
+  .creta-split { grid-template-areas: "head list" "creta list"; grid-template-rows: auto 1fr; }
+  .creta-split > :first-child { grid-area: head; }
+  .creta-split .results { grid-area: list; padding-bottom: 5rem; }
+  .creta-split .creta-stage { grid-area: creta; align-self: end; justify-self: start; width: 13rem; }
+}
+
+.creta-intro { display: flex; gap: 1rem; align-items: flex-start; margin-top: 1.25rem; max-width: 40rem; }
+.creta-intro .creta-avatar { width: 4rem; height: 4rem; flex-shrink: 0; }
+.creta-intro .legal-intro { margin-top: 0; }
 
 strong { font-weight: 600; }
 em { font-style: italic; }

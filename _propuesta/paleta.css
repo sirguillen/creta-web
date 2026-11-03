@@ -1,0 +1,59 @@
+/* CRETA — paleta del panel de administración (creta-admin, public/css/creta.css), para el sitio.
+ * Los valores marcados «oficial» salen de la paleta del personaje Creta (renders sRGB del paquete
+ * de assets); el resto se deriva de ellos o del globo de la pantalla de TV (azul y turquesa).
+ * Contraste WCAG calculado con la fórmula de luminancia relativa; AA pide 4,5:1 para texto normal
+ * y 3:1 para texto grande (≥ 24 px, o ≥ 18,66 px en negrita) y elementos gráficos. */
+
+/* 1. Tokens del admin, con los mismos nombres. Copiar tal cual al inicio de styles.css. */
+:root {
+  /* Fondos (oficiales: Crema, Blanco y Marino) */
+  --creta-bg: #FBF6EF; --creta-surface: #FFFFFF;
+  --creta-navy: #0A1428; --creta-navy-2: #13213D; --creta-navy-line: #1F2C47;
+
+  /* Cabello (oficiales: base, reflejo y sombra media) y su tinte */
+  --creta-hair: #E0520B; --creta-hair-highlight: #F36A23; --creta-hair-mid-shadow: #C83E03; --creta-hair-soft: #FCE3D4;
+
+  /* Accesorios (oficiales: medallón dorado y camisa beige) */
+  --creta-gold: #DDA032; --creta-gold-soft: #F6EBCF; --creta-gold-text: #7A5A12; --creta-shirt: #C9B29B;
+
+  /* Acción: botón principal = sombra media del cabello; azul para enlaces y acción secundaria */
+  --creta-orange: var(--creta-hair-mid-shadow); --creta-orange-hover: #A63303;
+  --creta-blue: #0B2A6E; --creta-blue-hover: #081F52; --creta-link: #1E3F94;
+
+  /* Éxito / «en línea» (turquesa del globo de la TV) */
+  --creta-teal: #14A39B; --creta-teal-soft: #DDF3F1; --creta-teal-text: #0B6560;
+
+  /* Neutros sobre crema */
+  --creta-text: #0A1428; --creta-text-2: #3D3A36; --creta-muted: #6B6458;
+  --creta-line: #EADFCF; --creta-line-soft: #F1E8DB;
+
+  --creta-radius: 10px;
+  --creta-font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* 2. Correspondencia propuesta con las variables actuales del sitio (styles.css, :root).
+ *    Así los componentes existentes cambian de color sin tocar cada regla. */
+:root {
+  --background: var(--creta-bg);               /* antes oklch(0.985 0.005 85) */
+  --foreground: var(--creta-text);             /* 17,08:1 sobre crema */
+  --card: var(--creta-surface);
+  --muted: var(--creta-line-soft);             /* fondo de las secciones .muted */
+  --muted-foreground: var(--creta-muted);      /* 5,44:1 sobre crema, 4,82:1 sobre --muted, 5,85:1 sobre blanco */
+  --accent: var(--creta-hair-soft);
+  --accent-foreground: var(--creta-orange-hover); /* 5,52:1 sobre --accent */
+  --border: var(--creta-line);
+  --highlight: var(--creta-gold);              /* solo decorativo: puntos, números, subrayados */
+  --radius: var(--creta-radius);
+  --font-sans: var(--creta-font);              /* recomendado; ver el brief, §4 */
+}
+
+/* 3. Reglas de uso (las mismas del admin)
+ *  - .btn-primary: fondo var(--creta-orange) con texto blanco (5,06:1); hover var(--creta-orange-hover) (6,78:1).
+ *    NUNCA texto blanco sobre --creta-hair (#E0520B, 3,9:1) ni sobre --creta-gold (2,3:1).
+ *  - Texto naranja sobre crema: var(--creta-orange) da 4,71:1 (pasa AA justo); sobre --creta-hair-soft
+ *    da 4,12:1 (solo texto grande). Para texto naranja pequeño sobre tinte, --creta-orange-hover.
+ *  - Enlaces: var(--creta-link) (8,9:1 sobre crema); hover var(--creta-navy).
+ *  - Etiquetas doradas: fondo --creta-gold-soft con texto --creta-gold-text (5,37:1).
+ *  - Bloques oscuros (opcional, p. ej. pie o una banda del hero): fondo --creta-navy, texto blanco (18,36:1),
+ *    acento --creta-hair-highlight (6,03:1) o --creta-gold (8,0:1). El logo blanco va aquí.
+ *  - Bordes de campos o tarjetas que deban verse: --creta-shirt; separadores suaves: --creta-line. */
