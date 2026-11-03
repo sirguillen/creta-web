@@ -5,9 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Página no encontrada — Brand's Lab</title>
 <meta name="robots" content="noindex" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" />
+<link rel="preload" href="/fonts/plus-jakarta-sans-v12/plus-jakarta-sans-latin-normal.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="/fonts/plus-jakarta-sans-v12/plus-jakarta-sans.css" />
 <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
@@ -28,12 +27,17 @@
 <main>
   <section class="contact-page">
     <div class="container-narrow">
-      <span class="eyebrow">Error 404</span>
-      <h1 class="serif">Esta página no existe</h1>
-      <p class="lede">La dirección que buscas no está disponible o fue movida. Puedes volver al inicio o consultar nuestros documentos.</p>
-      <div class="cta-row">
-        <a href="/index.html" class="btn-primary">Volver al inicio</a>
-        <a href="/terminos.html" class="btn-ghost">Términos y Política de Datos →</a>
+      <div class="creta-head ground">
+        <div>
+          <span class="eyebrow">Error 404</span>
+          <h1 class="serif">Esta página no existe</h1>
+          <p class="lede">La dirección que buscas no está disponible o fue movida. Puedes volver al inicio o consultar nuestros documentos.</p>
+          <div class="cta-row">
+            <a href="/index.html" class="btn-primary">Volver al inicio</a>
+            <a href="/terminos.html" class="btn-ghost">Términos y Política de Datos →</a>
+          </div>
+        </div>
+        <div class="creta-stage"><img src="/img/creta/creta_06_confundida_busto_600.webp" alt="" width="600" height="720" fetchpriority="high" /></div>
       </div>
     </div>
   </section>
@@ -41,7 +45,8 @@
 
 <footer class="site-footer">
   <div class="inner">
-    <div>
+    <div class="brand-col">
+      <img class="logo" src="/img/brand/logo-creta-blanco.svg" alt="" width="79" height="112" loading="lazy" decoding="async" />
       <div class="name serif">Brand&rsquo;s Lab</div>
       <div>Metodología CRETA · Neurociencia + IA</div>
     </div>

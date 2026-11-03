@@ -12,9 +12,8 @@
 <meta property="og:url" content="https://www.cretaapp.com/" />
 <link rel="canonical" href="https://www.cretaapp.com/" />
 <meta name="twitter:card" content="summary" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" />
+<link rel="preload" href="fonts/plus-jakarta-sans-v12/plus-jakarta-sans-latin-normal.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="fonts/plus-jakarta-sans-v12/plus-jakarta-sans.css" />
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -35,20 +34,23 @@
 <main>
   <!-- Hero -->
   <section class="hero">
-    <div class="container">
-      <div class="eyebrow-pill"><span class="dot"></span>Brand&rsquo;s Lab · Metodología</div>
-      <h1 class="serif">CRETA</h1>
-      <p class="lede">Neurociencia del comportamiento e Inteligencia Artificial para transformar la motivación, el liderazgo y los resultados de tu organización.</p>
-      <div class="cta-row">
-        <a href="#metodologia" class="btn-primary">Conoce CRETA</a>
-        <a href="terminos.html" class="btn-ghost">Términos y Política de Datos →</a>
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <div class="eyebrow-pill"><span class="dot"></span>Brand&rsquo;s Lab · Metodología</div>
+        <h1 class="serif">CRETA</h1>
+        <p class="lede">Neurociencia del comportamiento e Inteligencia Artificial para transformar la motivación, el liderazgo y los resultados de tu organización.</p>
+        <div class="cta-row">
+          <a href="#metodologia" class="btn-primary">Conoce CRETA</a>
+          <a href="terminos.html" class="btn-ghost">Términos y Política de Datos →</a>
+        </div>
+        <div class="tag-row">
+          <span class="tag-pill">Neurociencia</span>
+          <span class="tag-pill">Inteligencia Artificial</span>
+          <span class="tag-pill">Bienestar organizacional</span>
+          <span class="tag-pill">Gamificación</span>
+        </div>
       </div>
-      <div class="tag-row">
-        <span class="tag-pill">Neurociencia</span>
-        <span class="tag-pill">Inteligencia Artificial</span>
-        <span class="tag-pill">Bienestar organizacional</span>
-        <span class="tag-pill">Gamificación</span>
-      </div>
+      <div class="creta-stage"><img src="img/creta/creta_01_saludo_busto_600.webp" alt="" width="600" height="720" fetchpriority="high" /></div>
     </div>
   </section>
 
@@ -97,9 +99,14 @@
   <!-- CretaCoins -->
   <section id="cretacoins" class="bordered muted">
     <div class="container section-inner">
-      <span class="eyebrow">04 — CretaCoins</span>
-      <h2 class="section-title serif">Cada logro cuenta. Y se reconoce.</h2>
-      <p class="body-text section-intro">Las <strong>CretaCoins</strong> son la unidad digital de reconocimiento del ecosistema CRETA. Convierten el compromiso, el aprendizaje y la contribución de cada persona en un reconocimiento visible, basado en el mérito y con reglas claras para todos.</p>
+      <div class="creta-head">
+        <div>
+          <span class="eyebrow">04 — CretaCoins</span>
+          <h2 class="section-title serif">Cada logro cuenta. Y se reconoce.</h2>
+          <p class="body-text section-intro">Las <strong>CretaCoins</strong> son la unidad digital de reconocimiento del ecosistema CRETA. Convierten el compromiso, el aprendizaje y la contribución de cada persona en un reconocimiento visible, basado en el mérito y con reglas claras para todos.</p>
+        </div>
+        <div class="creta-stage"><img src="img/creta/creta_03_celebra_busto_600.webp" alt="" width="600" height="720" loading="lazy" decoding="async" /></div>
+      </div>
       <div class="cards-3">
         <div class="card"><div class="title serif">Se ganan participando</div><p class="body">Retos superados, programas de formación, misiones, actividades de aprendizaje y de bienestar: cada avance alineado con la metodología CRETA suma CretaCoins.</p></div>
         <div class="card"><div class="title serif">Se canjean en la Tienda Creta</div><p class="body">Formación, certificaciones, experiencias, beneficios corporativos y productos de aliados, según el catálogo disponible para tu organización.</p></div>
@@ -111,8 +118,8 @@
 
   <!-- Resultados -->
   <section class="bordered">
-    <div class="container section-inner">
-      <div class="section-grid split">
+    <div class="container section-inner grounded">
+      <div class="section-grid split creta-split">
         <div>
           <span class="eyebrow">05 — Resultados</span>
           <h2 class="section-title serif">¿Para qué lo hacemos?</h2>
@@ -123,6 +130,7 @@
           <li><span class="dot"></span><span>Decisiones de liderazgo informadas por datos y neurociencia.</span></li>
           <li><span class="dot"></span><span>Resultados tangibles, medibles y sostenibles en el tiempo.</span></li>
         </ul>
+        <div class="creta-stage"><img src="img/creta/creta_08_animo_busto_600.webp" alt="" width="600" height="720" loading="lazy" decoding="async" /></div>
       </div>
     </div>
   </section>
@@ -132,7 +140,10 @@
     <div class="container section-inner">
       <span class="eyebrow">06 — Legal</span>
       <h2 class="section-title serif">Documentación legal de la plataforma CRETA.</h2>
-      <p class="body-text legal-intro">Tratamos datos sensibles con responsabilidad. Aquí encontrarás los términos de uso, la política de tratamiento de Neurodatos y el estatuto de las CretaCoins que rigen el uso de la plataforma.</p>
+      <div class="creta-intro">
+        <img class="creta-avatar" src="img/creta/creta_02_feliz_avatar_256.webp" alt="" width="256" height="256" loading="lazy" decoding="async" />
+        <p class="body-text legal-intro">Tratamos datos sensibles con responsabilidad. Aquí encontrarás los términos de uso, la política de tratamiento de Neurodatos y el estatuto de las CretaCoins que rigen el uso de la plataforma.</p>
+      </div>
       <div class="legal-grid">
         <a href="terminos.html" class="card legal-card">
           <div class="label">Documento principal</div>
@@ -170,7 +181,8 @@
 
 <footer class="site-footer">
   <div class="inner">
-    <div>
+    <div class="brand-col">
+      <img class="logo" src="img/brand/logo-creta-blanco.svg" alt="" width="79" height="112" loading="lazy" decoding="async" />
       <div class="name serif">Brand&rsquo;s Lab</div>
       <div>Metodología CRETA · Neurociencia + IA</div>
     </div>
